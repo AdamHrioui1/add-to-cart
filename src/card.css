@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+
+}
+.card {
+    padding: 40px;
+    margin-top: 85px;
+    max-width: 900px;
+    width: 900px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+.card h1, .card h2 {
+    width: 100%;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.card_item {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card_item .img_container {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.card_item .img_container img {
+    width: 100%;
+}
+.card_item .info {
+    width: 100%;
+    padding: 20px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card_item .info p {
+    width: 100%;
+}
+
+.card_item .btns_container {
+    width: 200px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.card_item .btns_container .btns {
+    width: 60%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.card_item .btns_container .btns .btn, .card_item .btns_container .btn{
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    font-weight: 700;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.card_item .btns_container .btn:nth-child(1) {
+    order: 0;
+}
+.card_item .btns_container .btns span {
+    order: 1;
+}
+.card_item .btns_container .btn:nth-child(2) {
+    order: 2;
+}
+
+.card_item .btns_container .btn {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    background-color: #ff3939;
+}
+.card_item .btns_container .btn:hover {
+    color: #fff;
+    background-color: #000;
+}
+.card_item .btns_container .btn {
+    padding: 5px;
+}
+.border {
+    margin: 10px 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+}
+
+.total_container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.total_container h2:nth-child(2) {
+    text-align: right;
+    padding-right: 10px;
+}
+
+@media only screen and (max-width: 950px) {
+    .card {
+        width: 100%;
+    }  
+}
+
+
+@media only screen and (max-width: 650px) {
+    .btns {
+        display: flex;
+        flex-direction: column;
+    }
+    .card_item .btns_container .btn:nth-child(1) {
+        order: 2;
+    }
+    .card_item .btns_container .btn:nth-child(2) {
+        order: 0;
+    } 
+}
+
+@media only screen and (max-width: 550px) {
+    .card {
+        padding: 0;
+    } 
+    .btns_container {
+        justify-content: space-around;
+    }
+    
+    .card_item .btns_container {
+        justify-content: space-around;
+    } 
+    .card_item .btns_container .btns {
+        width: 0;
+    }
+    .card_item .info {
+        padding: 0;
+        padding-left: 10px;
+    }
+    .card_item .img_container {
+        padding-left: 10px;
+    }
+    .card h1 {
+        padding-left: 10px;
+    }
+    .card h2 {
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+    .btns span {
+        padding: 5px;
+    }
+    .card_item {
+        margin-bottom: 5px;
+    }
+    .total_container h2:nth-child(2) {
+        padding-right: 20px;
+    }
+}

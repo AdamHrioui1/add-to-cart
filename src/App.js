@@ -12,11 +12,52 @@ function App() {
   const [cart, setCart] = useState([])
   const [totalItems, setTotalItems] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
+  let [btns, setBtns] = useState([])
+  const [currentPage, setCurrentPage] = useState(0)
+  const [currentBtns, setCurrentBtns] = useState(0)
+  const [currentBtn, setCurrentBtn] = useState(1)
+  const itemsPerPage = 8
 
   useEffect(() => {
     setTotalItems(cart.reduce((total, item) => total + item.quantity, 0))
     setTotalPrice(cart.reduce((total, item) => total + item.quantity * item.price, 0))
   }, [cart])
+  
+  const getBtns = () => {
+    btns = []
+    const btnNumber = Math.ceil(data.length / itemsPerPage)
+    for (let i = 1; i <= btnNumber; i++) {
+      btns.push(i)      
+    }
+    setBtns(btns)
+  }
+
+  const setPage = (btn) =>  {
+    setCurrentPage(btn - 1)
+    setCurrentBtn(btn)
+  }
+
+  const prevBtns = () => {
+    if(currentBtns <= 0) {
+      return ''
+    }
+    else {
+      return setCurrentBtns(currentBtns-1)
+    }
+  }
+
+  const nextBtns = () => {
+    if(currentBtns*5 + 5 >= btns.length) {
+      return ''
+    }
+    else {
+      return setCurrentBtns(currentBtns+1)
+    }
+  }
+
+  useEffect(() => {
+    getBtns()
+  }, [])
 
   const addToCart = (id) => {
     const productExist = cart.find(item => item.id === id)
@@ -47,14 +88,21 @@ function App() {
     <div className="App">
       <Router>
         <Navbar totalItems={totalItems} />
-        <Routs products={products} 
-               addToCart={addToCart}
-               cart={cart} 
-               decreaseItem={decreaseItem}
-               removeFromCart={removeFromCart}
-               totalItems={totalItems}
-               totalPrice={totalPrice}
-               />
+          <Routs products={products} 
+                addToCart={addToCart}
+                cart={cart} 
+                decreaseItem={decreaseItem}
+                removeFromCart={removeFromCart}
+                totalItems={totalItems}
+                totalPrice={totalPrice}   
+                btns={btns} 
+                prevBtns={prevBtns} 
+                currentBtns={currentBtns} 
+                nextBtns={nextBtns} 
+                setPage={setPage} 
+                currentBtn={currentBtn}
+                currentPage={currentPage} 
+                itemsPerPage={itemsPerPage} />
       </Router>
     </div>
   );

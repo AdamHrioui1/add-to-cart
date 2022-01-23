@@ -361,3 +361,82 @@ svg path {
     justify-content: center;
   }
 }
+
+/*--------------------------------------------*/
+
+.btns_conatiner {
+  margin: 20px 0;
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btns_conatiner button {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 0%;
+  color: #555;
+  
+  font-weight: 700;
+  cursor: pointer;
+  transition: .4s;
+}
+.btns_conatiner button:hover {
+  color: #fff;
+  background-color: #bebebe;
+}
+
+button.active {
+  border-radius: 0%;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 700;
+  background-color: #000;
+}
+.btns_conatiner button svg path {
+  fill: #555;
+  width: 10px;
+}
+.btns_conatiner button svg {
+  width: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .btns_conatiner {
+    width: 100vw;
+    padding: 0;
+    border: none;
+  }
+  .btns_conatiner button:hover {
+    color: #fff;
+    background-color: #bebebe;
+  }
+}
+@media only screen and (max-width: 550px) {
+  * {
+    cursor: none;
+  }
+  .btns_conatiner button {
+    margin: 0;
+    cursor: none;
+  }
+  .btns_conatiner button:hover {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    cursor: none;
+  }
+}
